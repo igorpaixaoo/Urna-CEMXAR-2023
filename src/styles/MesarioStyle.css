@@ -1,0 +1,53 @@
+
+.App{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mesario{
+    position: absolute;
+    top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#nome{
+    width: 270px;
+    height: 20px;
+    padding: 10px;
+    font-size: 15pt;
+    outline: none;
+}
+
+#btnLiberar{
+    margin: 30px;
+    width: 150px;
+    height: 40px;
+    font-size: 15pt;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;    
+    transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}
+
+#btnLiberar:hover{
+    border-radius: 10px;
+    font-size: 16pt;
+}
+
+#btnLiberar:focus{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: 16pt;
+}
