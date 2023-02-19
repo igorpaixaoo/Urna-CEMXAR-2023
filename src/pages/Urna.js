@@ -9,11 +9,13 @@ import audioDigito from '../util/somDigito.mp3'
 import audioUrna from '../util/somUrna.mp3'
 
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import VotoConfirmado from "./Mesario";
 
 function App() {
 
-  const [showUrna, setShowUrna] = useState(false)
+  const [showViewUrna, setShowUrna] = useState(false)
   const [showDados, setShowDados] = useState(false)
   const [showBtns, setShowBtns] = useState(false)
   const [showConfirmacaoVoto, setShowConfirmacaoVoto] = useState(false)
@@ -37,6 +39,14 @@ function App() {
 
   //Verificar candidatos
   useEffect(() =>{
+    axios.get("http://localhost:8080/urna/liberar/2")
+      .then(dados =>{
+        setShowUrna(dados.data.showUrna)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+
     if(numeroCandidato == 1){
       setShowDados(true)
       setShowBtns(true)
@@ -49,10 +59,17 @@ function App() {
   })
 
   //Botão de confirmar
-  const keyEnter = (event) =>{
+  const keyEnter = async(event) =>{
     if(event.key === 'Enter'){
       let song = new Audio(audioUrna)
       song.play();
+
+      axios.put("http://localhost:8080/urna/liberar/2", {
+        showUrna: false
+      })
+        .catch(error =>{
+            console.log(error)
+        })
 
       setShowConfirmacaoVoto(true)
       
@@ -75,7 +92,7 @@ function App() {
       <div className="header">
         <img width="100px" src={logoCemxar}></img>
       </div>
-      {showUrna ?(
+      {showViewUrna ?(
         <div className="eleitor-area">
           <h1 id="tittle">Eleição Grêmio Estudantil - <span><strong>CEMXAR</strong></span></h1>
           <div className="inputDigitoCandidato">
