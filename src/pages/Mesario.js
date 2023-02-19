@@ -8,8 +8,9 @@ const Mesario = () =>{
     const atualizar = () =>{
         alert("Urna liberada com sucesso!")
 
-        axios.put("http://localhost:8080/urna/liberar/2", {
-            showUrna: true
+        axios.put("http://localhost:8080/urna/liberar/1", {
+            showUrna: true,
+            atualizarPage: true
         })
             .catch(error =>{
                 console.log(error)

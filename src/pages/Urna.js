@@ -15,12 +15,12 @@ import VotoConfirmado from "./Mesario";
 
 function App() {
 
-  const [showViewUrna, setShowUrna] = useState(false)
-  const [showDados, setShowDados] = useState(false)
-  const [showBtns, setShowBtns] = useState(false)
-  const [showConfirmacaoVoto, setShowConfirmacaoVoto] = useState(false)
-  const [showGif, setShowGif] = useState(true)
-  const [numeroCandidato, setNumeroCandidato] = useState(null)
+  var [showViewUrna, setShowUrna] = useState(false)
+  var [showDados, setShowDados] = useState(false)
+  var [showBtns, setShowBtns] = useState(false)
+  var [atualizarPage, setAtualizarPage] = useState(null)
+  var [showGif, setShowGif] = useState(true)
+  var [numeroCandidato, setNumeroCandidato] = useState(null)
 
   const [horario, setHorario] = useState(null)
 
@@ -39,14 +39,26 @@ function App() {
 
   //Verificar candidatos
   useEffect(() =>{
-    axios.get("http://localhost:8080/urna/liberar/2")
+    axios.get("http://localhost:8080/urna/liberar/1")
       .then(dados =>{
         setShowUrna(dados.data.showUrna)
+        setAtualizarPage(dados.data.atualizarPage)
       })
       .catch(error =>{
         console.log(error)
       })
 
+    //Atualizar a pagina a cada 1 segundo
+    if(showViewUrna == false){
+      
+      if(atualizarPage == false){
+        setTimeout(() =>{
+          window.location.reload(true)
+        }, 1000)
+      }
+    }
+
+    //verificar candidato
     if(numeroCandidato == 1){
       setShowDados(true)
       setShowBtns(true)
@@ -56,6 +68,7 @@ function App() {
       setShowGif(true)
       setShowBtns(false)
     } 
+
   })
 
   //Botão de confirmar
@@ -64,21 +77,19 @@ function App() {
       let song = new Audio(audioUrna)
       song.play();
 
-      axios.put("http://localhost:8080/urna/liberar/2", {
+      axios.put("http://localhost:8080/urna/liberar/1", {
         showUrna: false
       })
         .catch(error =>{
             console.log(error)
         })
 
-      setShowConfirmacaoVoto(true)
       
       setShowDados(false)
       setShowGif(false)
       setShowBtns(false)
 
-      
-      setShowUrna(true)
+      setShowUrna(false)
     }
   }
 
