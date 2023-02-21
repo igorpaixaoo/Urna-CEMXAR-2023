@@ -1,28 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../styles/MesarioStyle.css"
 import axios from "axios";
 
-const Mesario = () =>{
+import somDigito from "../util/somDigito.mp3"
 
-    const atualizar = () =>{
-        alert("Urna liberada com sucesso!")
+const Mesario = () => {
+
+    var [showUrnaLiberada, setShowUrnaLiberada] = useState(false);
+    var [nome, setNome] = useState("")
+
+    const atualizar = async() => {
+
+        setShowUrnaLiberada(true)
 
         axios.put("http://localhost:8080/urna/liberar/1", {
             showUrna: true,
             atualizarPage: true
         })
-            .catch(error =>{
+            .catch(error => {
                 console.log(error)
             })
+
+        setNome("")
+        let som = new Audio(somDigito);
+        som.play();
     }
 
-    return(
+    const input = (e) =>{
+        const {value} = e.target
+
+        setNome(value)
+
+        if(value == ""){
+            setShowUrnaLiberada(false)
+        }
+    }
+
+    return (
         <div className="App">
             <div className="container">
                 <div className="mesario">
-                    <input id="nome" placeholder="Nome Completo: "/>
+                    <input id="nome" placeholder="Nome Completo: " onChange={input}/>
                     <button id="btnLiberar" onClick={atualizar}>Liberar</button>
+
+                    {showUrnaLiberada &&(
+                        <p id="urna-liberada-sucesso">Urna liberada com sucesso!</p>
+                    )}
                 </div>
             </div>
         </div>

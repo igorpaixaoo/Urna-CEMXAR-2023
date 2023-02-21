@@ -1,4 +1,4 @@
-#aguarde{
+#aguarde {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6,25 +6,25 @@
     font-size: 60pt;
 }
 
-.App{
+.App {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.header{
+.header {
     position: absolute;
     top: 3%;
     left: 92%;
 }
 
-.inputDigitoCandidato{
+.inputDigitoCandidato {
     display: flex;
     margin-top: 50px;
 }
 
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +36,7 @@
     background-color: black;
 }
 
-.dados-candidato{
+.dados-candidato {
     position: absolute;
     left: 10%;
     margin-top: 30px;
@@ -45,7 +45,7 @@
     text-align: left;
 }
 
-.botoes{
+.botoes {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,11 +54,11 @@
     left: 60%;
 }
 
-button{
+button {
     margin: 5px;
 }
 
-#btnConfirmar{
+#btnConfirmar {
     width: 100px;
     height: 50px;
     font-size: 13pt;
@@ -68,7 +68,7 @@ button{
     border-radius: 10px;
 }
 
-#btnBranco{
+#btnBranco {
     width: 100px;
     height: 50px;
     font-size: 13pt;
@@ -78,7 +78,7 @@ button{
     border-radius: 10px;
 }
 
-#btnCorrige{
+#btnCorrige {
     width: 100px;
     height: 50px;
     font-size: 13pt;
@@ -88,39 +88,39 @@ button{
     border-radius: 10px;
 }
 
-#tittle{
+#tittle {
     margin: 20px;
     font-size: 35pt;
     font-weight: 100;
 }
 
-#digito{
+#digito {
     margin-top: 20px;
     width: 120px;
-    height: 130px;
+    height: 150px;
     border: 2px solid black;
     text-align: center;
     font-size: 70pt;
 }
 
-#gif{
+#gif {
     position: absolute;
     left: 80%;
-    top: 65%;   
+    top: 65%;
 }
 
-#creditos{
+#creditos {
     font-size: 30pt;
     color: white;
 }
 
-#voto{
+#voto {
     position: absolute;
     top: 30%;
     font-size: 30pt;
 }
 
-p{
+p {
     margin-top: 10px;
     margin: 1px;
     font-size: 25pt;

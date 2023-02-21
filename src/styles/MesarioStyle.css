@@ -26,6 +26,17 @@
     padding: 10px;
     font-size: 15pt;
     outline: none;
+    border: 1px solid black;
+    transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#nome:hover{
+    border-radius: 10px;
+}
+
+#nome:focus{
+    border-radius: 10px;
+    border: 1px solid rgb(255, 0, 0);
 }
 
 #btnLiberar{
@@ -34,6 +45,7 @@
     height: 40px;
     font-size: 15pt;
     background-color: transparent;
+    border-radius: 5px;
     color: black;
     border: 1px solid black;    
     transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -42,7 +54,6 @@
 
 #btnLiberar:hover{
     border-radius: 10px;
-    font-size: 16pt;
 }
 
 #btnLiberar:focus{
@@ -50,4 +61,9 @@
     color: white;
     border-radius: 10px;
     font-size: 16pt;
+}
+
+#urna-liberada-sucesso{
+    font-size: 40pt;
+    transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
