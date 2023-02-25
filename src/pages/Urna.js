@@ -112,6 +112,10 @@ function App() {
               <p>Candidato: <strong>name</strong></p>
               <p>Vice Candidato: <strong>name</strong></p>
               <p>Número: <strong>number</strong></p>
+              <div className="informations">
+                <p>APERTE A TECLA <span id="cor-verde">VERDE</span> PARA CONFIRMAR O VOTO</p>
+                <p>APERTE A TECLA <span id="cor-laranja">LARANJA</span> PARA CORRIGIR O VOTO</p>
+              </div>
             </div>
           )}
 

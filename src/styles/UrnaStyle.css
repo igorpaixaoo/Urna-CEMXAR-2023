@@ -125,3 +125,17 @@ p {
     margin: 1px;
     font-size: 25pt;
 }
+
+.informations{
+    margin-top: 20px;
+}
+
+#cor-verde{
+    font-weight: bolder;
+    color: #00FF00;
+}
+
+#cor-laranja{
+    font-weight: bolder;
+    color: #FFC800;
+}
