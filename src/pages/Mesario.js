@@ -14,7 +14,7 @@ const Mesario = () => {
 
         setShowUrnaLiberada(true)
 
-        axios.put("http://localhost:8080/urna/liberar/1", {
+        axios.put("http://127.0.0.1:8080/urna/liberar/1", {
             showUrna: true,
             atualizarPage: true
         })

@@ -32,7 +32,7 @@ function App() {
 
   //Verificar candidatos
   useEffect(() => {
-    axios.get("http://localhost:8080/urna/liberar/1")
+    axios.get("http://127.0.0.1:8080/urna/liberar/1")
       .then(dados => {
         setShowUrna(dados.data.showUrna)
         setAtualizarPage(dados.data.atualizarPage)
@@ -68,7 +68,7 @@ function App() {
       let song = new Audio(audioUrna)
       song.play();
 
-      axios.put("http://localhost:8080/urna/liberar/1", {
+      axios.put("http://127.0.0.1:8080/urna/liberar/1", {
         showUrna: false
       })
         .catch(error => {
