@@ -32,6 +32,7 @@ function App() {
 
   //Verificar candidatos
   useEffect(() => {
+    //URL da api local
     axios.get("http://127.0.0.1:8080/urna/liberar/1")
       .then(dados => {
         setShowUrna(dados.data.showUrna)
